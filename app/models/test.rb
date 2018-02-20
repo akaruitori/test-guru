@@ -3,7 +3,6 @@ class Test < ApplicationRecord
     self.
       joins('JOIN categories ON tests.category_id = categories.id').
       where('categories.title = ?', category_title).
-      select('tests.title').
       order('tests.title DESC').
       pluck(:title)
   end
