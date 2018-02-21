@@ -5,18 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+<<<<<<< Updated upstream
+=======
 categories = Category.create([
   {title:'English'}, {title: 'Japanese'}, {title:'Korean'}
   ])
 
 tests = Test.create([
-  {title: 'English writing', category_id: 1},
-  {title: 'English writing', level: 1, category_id: 1},
-  {title: 'English grammar', level: 1, category_id: 1},
-  {title: 'English grammar', level: 2, category_id: 1},
-  {title: 'Japanese writing', level: 2, category_id: 2},
-  {title: 'Japanese writing', level: 3, category_id: 2},
-  {title: 'Japanese grammar', level: 2, category_id: 2}
+  {title: 'English writing', category_id: 1, user_id: 1},
+  {title: 'English writing', level: 1, category_id: 1, user_id: 1},
+  {title: 'English grammar', level: 1, category_id: 1, user_id: 1},
+  {title: 'English grammar', level: 2, category_id: 1, user_id: 1},
+  {title: 'Japanese writing', level: 2, category_id: 2, user_id: 1},
+  {title: 'Japanese writing', level: 3, category_id: 2, user_id: 1},
+  {title: 'Japanese grammar', level: 2, category_id: 2, user_id: 1}
   ])
 
 questions = Question.create([
@@ -48,3 +50,4 @@ tests_taken = TakenTest.create([
   {user_id: 1, test_id: 4},
   {user_id: 1, test_id: 5}
   ])
+>>>>>>> Stashed changes
