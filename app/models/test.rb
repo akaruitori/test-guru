@@ -5,6 +5,10 @@ class Test < ApplicationRecord
   has_many :taken_tests
   has_many :users, through: :taken_tests
 
+  scope :easy, -> { where(level: 0..1) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
+
   def self.select_by_category(category_title)
     self.
       joins('JOIN categories ON tests.category_id = categories.id').
