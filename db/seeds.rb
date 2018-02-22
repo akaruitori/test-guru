@@ -5,8 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< Updated upstream
-=======
+
 categories = Category.create([
   {title:'English'}, {title: 'Japanese'}, {title:'Korean'}
   ])
@@ -50,4 +49,3 @@ tests_taken = TakenTest.create([
   {user_id: 1, test_id: 4},
   {user_id: 1, test_id: 5}
   ])
->>>>>>> Stashed changes
