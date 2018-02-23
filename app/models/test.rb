@@ -9,11 +9,10 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
-  def self.select_by_category(category_title)
-    self.
-      joins('JOIN categories ON tests.category_id = categories.id').
-      where('categories.title = ?', category_title).
-      order('tests.title DESC').
+  scope :titles_by_category, -> (category_title) do
+      joins(:category).
+      where(categories: {title: 'Japanese'}).
+      order(title: :desc).
       pluck(:title)
-  end
+    end
 end
