@@ -5,6 +5,12 @@ class Test < ApplicationRecord
   has_many :taken_tests
   has_many :users, through: :taken_tests
 
+  validates :title, presence: true,
+                    uniqueness: {scope: :level,
+                                 message: 'with this level already exists'}
+  validates :level, numericality: {only_integer: true,
+                                   greater_than_or_equal_to: 0}
+
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }

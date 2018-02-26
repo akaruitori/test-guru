@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user = User.create(email: 'first@user.net', password:'123')
+
 categories = Category.create([
   {title:'English'}, {title: 'Japanese'}, {title:'Korean'}
   ])
@@ -21,26 +23,22 @@ tests = Test.create([
   ])
 
 questions = Question.create([
-  {body:'Easy English writing question 1', test_id: 1},
-  {body:'Easy English writing question 2', test_id: 1},
-  {body:'Easy English grammar question', test_id: 3},
-  {body:'Hard English grammar question', test_id: 4},
-  {body:'Hard Japanese writing question 1', test_id: 6},
-  {body:'Hard Japanese writing question 2', test_id: 6},
-  {body:'Japanese grammar question 1', test_id: 7},
-  {body:'Japanese grammar question 2', test_id: 7}
+  {body: 'Easy English writing question 1', test_id: 1},
+  {body: 'Easy English writing question 2', test_id: 1},
+  {body: 'Easy English grammar question', test_id: 3},
+  {body: 'Hard English grammar question', test_id: 4},
+  {body: 'Hard Japanese writing question 1', test_id: 6},
+  {body: 'Hard Japanese writing question 2', test_id: 6},
   ])
 
 answers = Answer.create([
-  {body:'Easy English answer 1', question_id: 1},
-  {body:'Easy English answer 2', question_id: 1},
-  {body:'Easy English answer 3', question_id: 1, correct: true},
-  {body:'Japanese grammar answer 1', question_id: 7},
-  {body:'Japanese grammar answer 2', question_id: 7, correct: true},
-  {body:'Japanese grammar answer 3', question_id: 7, correct: true}
+  {body: 'Easy English writing answer 1', question_id: 1},
+  {body: 'Easy English writing answer 2', question_id: 2},
+  {body: 'Easy English grammar answer 1', question_id: 3, correct: true},
+  {body: 'Hard English grammar answer 1', question_id: 4},
+  {body: 'Japanese writing answer 1', question_id: 5, correct: true},
+  {body: 'Japanese writing answer 2', question_id: 6, correct: true}
   ])
-
-user = User.create(email: 'first@user.net', password:'123')
 
 tests_taken = TakenTest.create([
   {user_id: 1, test_id: 1},
