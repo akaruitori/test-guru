@@ -7,7 +7,7 @@ class Test < ApplicationRecord
 
   validates :title, presence: true,
                     uniqueness: {scope: :level,
-                                 message: 'with this level already exists'}
+                               message: 'with this level already exists'}
   validates :level, numericality: {only_integer: true,
                                    greater_than_or_equal_to: 0}
 
@@ -15,10 +15,15 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
-  scope :titles_by_category, -> (category_title) do
+  scope :by_category, -> (category_title) do
       joins(:category).
-      where(categories: {title: 'Japanese'}).
-      order(title: :desc).
-      pluck(:title)
+      where(categories: {title: category_title}).
+      order(title: :desc)
     end
+
+  scope :by_level, -> (level) { where(level: level) }
+
+  def self.title_by_category(category_title)
+    self.by_category.pluck(:title)
+  end
 end
