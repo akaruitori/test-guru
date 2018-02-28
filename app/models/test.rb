@@ -24,6 +24,6 @@ class Test < ApplicationRecord
   scope :by_level, -> (level) { where(level: level) }
 
   def self.title_by_category(category_title)
-    self.by_category.pluck(:title)
+    self.by_category(category_title).pluck(:title)
   end
 end
